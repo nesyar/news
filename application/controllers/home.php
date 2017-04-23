@@ -21,8 +21,24 @@ class Home extends CI_Controller {
 		//get all show
 		$this->data['news'] = $this->news_model->get_all_news();
 		
+		
 		$this->load->view('template_view', $this->data);
 
 	}
+	public function detail($id=NULL){
+
+	if($id!= NULL){
+
+			//getdetailshow
+			$this->data['detail'] = $this->news_model->get_news_detail($id);
+
+			
+			$this->data['main_view'] = 'detail_view';
+			$this->load->view('template_view', $this->data);
+		} else {
+			redirect('home');
+		}
+}
+
 
 }

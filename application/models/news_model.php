@@ -16,9 +16,9 @@ class News_model extends CI_Model
 		return $this->db->get('news')
 		->result();
 	}
-	public function get_news_detail($id_news)
+	public function get_news_detail($id)
 	{
-		return $this->db->where('news.id',$id_news)
+		return $this->db->where('news.id',$id)
 		->limit(1)
 		->get($this->db_table)
 		->row();
